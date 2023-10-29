@@ -12,11 +12,26 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <style>
+        .hover-effect{
+            display: none;
+        }
+        .bookc:hover .hover-effect{
+display: flex !important;
+position: absolute;
+bottom: 0;
+left: 0;
+
+background-color: wheat;
+        }
+    </style>
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 <body>
+    @include('sweetalert::alert')
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -67,7 +82,14 @@
         </nav>
 
         <main class="py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+
             @yield('content')
+                        </div>
+                    </div>
+                </div>
         </main>
     </div>
 </body>

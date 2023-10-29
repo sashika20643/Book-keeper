@@ -21,10 +21,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('Admin.home');
-Route::get('/books', [BookController::class, 'Home'])->name('Admin.books.home');
-Route::get('/books/create', [BookController::class, 'create'])->name('Admin.books.create');
+Route::get('admin/books', [BookController::class, 'Home'])->name('Admin.books.home');
+Route::get('admin/books/create', [BookController::class, 'create'])->name('Admin.books.create');
 Route::post('/books', [BookController::class, 'store'])->name('Admin.books.store');
-Route::get('/books/{id}/edit', [BookController::class, 'edit']);
-Route::put('/books/{id}', [BookController::class, 'update']);
-Route::delete('/books/{id}', [BookController::class, 'destroy']);
+Route::get('/books/edit/{id}', [BookController::class, 'edit'])->name('Admin.books.edit');
+Route::put('/books/{id}', [BookController::class, 'update'])->name('Admin.books.update');
+Route::delete('/books/{id}', [BookController::class, 'delete'])->name('Admin.books.delete');
 
