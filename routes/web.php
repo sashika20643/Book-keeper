@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\BookIssuanceController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//------------------landing page----------------------
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,18 +33,21 @@ Route::middleware([
       ])->group(function () {
 
         //---------------Handle books------------------
-Route::get('books', [BookController::class, 'Home'])->name('Admin.books.home');
-Route::get('books/create', [BookController::class, 'create'])->name('Admin.books.create');
-Route::post('/books/store', [BookController::class, 'store'])->name('Admin.books.store');
-Route::get('/books/edit/{id}', [BookController::class, 'edit'])->name('Admin.books.edit');
-Route::put('/books/{id}', [BookController::class, 'update'])->name('Admin.books.update');
-Route::delete('/books/{id}', [BookController::class, 'delete'])->name('Admin.books.delete');
-
-       //---------------Handle Issue------------------
-Route::get('/book-issuances', [BookIssuanceController::class, 'index'])->name('book-issuances.index');
-Route::get('/book-issuances/create', [BookIssuanceController::class, 'create'])->name('book-issuances.create');
-Route::post('/book-issuances/store', [BookIssuanceController::class, 'store'])->name('book-issuances.store');
-Route::put('/book-issuances/{issuance}/receive', [BookIssuanceController::class, 'receive'])->name('book-issuances.receive');
+        Route::prefix('books')->group(function () {
+Route::get('/', [BookController::class, 'Home'])->name('Admin.books.home');
+Route::get('/create', [BookController::class, 'create'])->name('Admin.books.create');
+Route::post('/store', [BookController::class, 'store'])->name('Admin.books.store');
+Route::get('/edit/{id}', [BookController::class, 'edit'])->name('Admin.books.edit');
+Route::put('update/{id}', [BookController::class, 'update'])->name('Admin.books.update');
+Route::delete('delete/{id}', [BookController::class, 'delete'])->name('Admin.books.delete');
+          });
+       //---------------Handle Issuances------------------
+       Route::prefix('book-issuances')->group(function () {
+Route::get('/', [BookIssuanceController::class, 'index'])->name('book-issuances.index');
+Route::get('/create', [BookIssuanceController::class, 'create'])->name('book-issuances.create');
+Route::post('/store', [BookIssuanceController::class, 'store'])->name('book-issuances.store');
+Route::put('/{issuance}/receive', [BookIssuanceController::class, 'receive'])->name('book-issuances.receive');
+});
 
       });
 });

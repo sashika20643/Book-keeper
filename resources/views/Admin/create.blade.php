@@ -35,7 +35,7 @@
         </div>
 
         <div class="col-md-6">
-            <img src="{{ asset('images/createbg.jpg') }}" alt="Background Image" class="img-fluid" style="height: 100%;max-height:600px">
+            <img src="{{ asset('images/createbg.jpg') }}" alt="Background Image" class="img-fluid" style="height: 100%;max-height:500px">
         </div>
     </div>
 </div>

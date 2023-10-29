@@ -25,8 +25,8 @@ class BookController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'author' => 'required',
-            'price' => 'required|numeric',
-            'stock' => 'required|integer',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
         ]);
 
         Book::create($request->all());
@@ -45,8 +45,8 @@ class BookController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'author' => 'required',
-            'price' => 'required|numeric',
-            'stock' => 'required|integer',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
         ]);
 
         $book = Book::find($id);

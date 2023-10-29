@@ -34,6 +34,7 @@ background-color: rgb(197, 197, 196);
 
 </head>
 <body>
+
     @include('sweetalert::alert')
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -85,6 +86,17 @@ background-color: rgb(197, 197, 196);
         </nav>
 
         <main class="py-4">
+            <div style="width:100vw; padding:5px;">
+
+                @if($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error!</strong> Please check the form and try again.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+            </div>
+
+
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-9">
@@ -95,5 +107,7 @@ background-color: rgb(197, 197, 196);
                 </div>
         </main>
     </div>
+
+
 </body>
 </html>
