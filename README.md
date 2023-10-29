@@ -18,4 +18,7 @@ This Laravel 10 project is a Book Management System that follows the MVC (Model-
     <li>run php artisan key:generate</li>
     <li>run php artisan migrate --seed</li>
 </ul>
-![image](https://github.com/sashika20643/Book-keeper/assets/73024901/14883c2b-0ed4-4108-81d9-09fb1e49cec0)
+
+
+
+![Screenshot 2023-10-29 205041](https://github.com/sashika20643/Book-keeper/assets/73024901/0df66b07-8cf8-46cb-8803-ef313f42ad04)
