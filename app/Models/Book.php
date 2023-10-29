@@ -9,5 +9,13 @@ class Book extends Model
 {
 
     protected $fillable = ['title', 'author', 'price', 'stock'];
+
+
     use HasFactory;
+
+
+    public function issuances()
+    {
+        return $this->hasMany(BookIssuance::class);
+    }
 }
