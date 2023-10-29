@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->date('issued_date');
             $table->date('received_date')->nullable();
-            $table->string('status');
+            $table->string('status')->default('issued');
             $table->timestamps();
 
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');

@@ -55,10 +55,10 @@ background-color: rgb(197, 197, 196);
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ url('/dashboard') }}">Books</a>
+                            <a class="nav-link" href="{{ route('home') }}">Books</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/dashboard/records') }}">Records</a>
+                            <a class="nav-link" href="{{ route('book-issuances.index') }}">Records</a>
                         </li>
 
                             <li class="nav-item dropdown">

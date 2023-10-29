@@ -1,23 +1,32 @@
-@extends('Member.layouts.app')
+
+
+@extends('member.layouts.dashboard')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="card p-3">
+        <div class="card-header mb-4">Your Book records</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-             Logged in as a user
-                </div>
-            </div>
-        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Book Title</th>
+                    <th>Issued Date</th>
+                    <th>Received Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($bookIssuances as $issuance)
+                    <tr>
+                        <td>{{ $issuance->id }}</td>
+                        <td>{{ $issuance->book->title }}</td>
+                        <td>{{ $issuance->issued_date }}</td>
+                        <td>{{ $issuance->received_date ?? 'Not Received' }}</td>
+                        <td>{{ $issuance->status }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-</div>
 @endsection

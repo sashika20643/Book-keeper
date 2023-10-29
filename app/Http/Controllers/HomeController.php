@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\BookIssuance;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -30,7 +32,12 @@ class HomeController extends Controller
             return view('Admin.home', compact('books'));
         }
         else{
-            return view('Member.home');
+
+        $user = Auth::user();
+
+
+        $bookIssuances =BookIssuance::where('user_id',$user->id)->get() ;
+            return view('Member.home',compact('bookIssuances'));
         }
 
     }

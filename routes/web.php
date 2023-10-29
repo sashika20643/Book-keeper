@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BookController;
-use App\Http\Controllers\BookIssuanceController;
+use App\Http\Controllers\Admin\BookIssuanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +41,10 @@ Route::put('/books/{id}', [BookController::class, 'update'])->name('Admin.books.
 Route::delete('/books/{id}', [BookController::class, 'delete'])->name('Admin.books.delete');
 
        //---------------Handle Issue------------------
+Route::get('/book-issuances', [BookIssuanceController::class, 'index'])->name('book-issuances.index');
 Route::get('/book-issuances/create', [BookIssuanceController::class, 'create'])->name('book-issuances.create');
+Route::post('/book-issuances/store', [BookIssuanceController::class, 'store'])->name('book-issuances.store');
+Route::put('/book-issuances/{issuance}/receive', [BookIssuanceController::class, 'receive'])->name('book-issuances.receive');
+
       });
 });
