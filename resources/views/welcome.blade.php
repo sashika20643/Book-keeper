@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>BookKeeper</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -57,7 +57,7 @@
                   <div class="text-white">
                     <h1 class="mb-3">“A reader lives a thousand lives before he dies"</h1>
                     <h5 class="mb-4">
-                      Join with bookKeeper...
+                      start your reading jurney with bookKeeper...
                     </h5>
                     @guest
                     @if (Route::has('login'))

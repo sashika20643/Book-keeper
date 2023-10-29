@@ -58,6 +58,7 @@ class BookController extends Controller
     public function delete($id)
     {
         $book = Book::find($id);
+        $book->issuances()->delete();
         $book->delete();
         Alert::success('Book deleted successfully!',"You have deleted the book");
         return redirect('admin/books');
