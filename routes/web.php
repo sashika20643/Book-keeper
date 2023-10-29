@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\BookIssuanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +21,26 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('Admin.home');
-Route::get('admin/books', [BookController::class, 'Home'])->name('Admin.books.home');
-Route::get('admin/books/create', [BookController::class, 'create'])->name('Admin.books.create');
-Route::post('/books', [BookController::class, 'store'])->name('Admin.books.store');
+Route::middleware([
+    'auth',
+
+])->group(function () {
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::prefix('admin')->middleware([
+        'isAdmin'
+      ])->group(function () {
+
+        //---------------Handle books------------------
+Route::get('books', [BookController::class, 'Home'])->name('Admin.books.home');
+Route::get('books/create', [BookController::class, 'create'])->name('Admin.books.create');
+Route::post('/books/store', [BookController::class, 'store'])->name('Admin.books.store');
 Route::get('/books/edit/{id}', [BookController::class, 'edit'])->name('Admin.books.edit');
 Route::put('/books/{id}', [BookController::class, 'update'])->name('Admin.books.update');
 Route::delete('/books/{id}', [BookController::class, 'delete'])->name('Admin.books.delete');
 
+       //---------------Handle Issue------------------
+Route::get('/book-issuances/create', [BookIssuanceController::class, 'create'])->name('book-issuances.create');
+      });
+});
