@@ -19,7 +19,7 @@ This Laravel 10 project is a Book Management System that follows the MVC (Model-
     <li>run php artisan migrate --seed</li>
 </ul>
 
-<b>Authentication:</b>
+<b>Credentials:</b>
 Admin
 <ul>
     <li>
